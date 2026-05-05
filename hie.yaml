@@ -1,0 +1,7 @@
+cradle:
+  cabal:
+    - path: "src"
+      component: "lib:persistent-records"
+
+    - path: "test"
+      component: "persistent-records:test:persistent-records-test"

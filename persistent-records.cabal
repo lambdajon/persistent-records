@@ -1,0 +1,48 @@
+cabal-version:   3.0
+name:            persistent-records
+version:         0.1.0.0
+synopsis:        Generate record types and mappers from Persistent entities
+homepage:        https://github.com/lambdajon/persistent-records
+license:         BSD-3-Clause
+license-file:    LICENSE
+author:          lambdajon
+maintainer:      lambdajon42@gmail.com
+category:        Database
+build-type:      Simple
+extra-doc-files: CHANGELOG.md
+
+common warnings
+  ghc-options: -Wall
+
+library
+  import:           warnings
+  exposed-modules:  Database.Persist.Records
+  other-modules:
+    Database.Persist.Records.Config
+    Database.Persist.Records.Internal
+    Database.Persist.Records.TH
+
+  build-depends:
+    , base
+    , data-default
+    , persistent
+    , template-haskell
+
+  hs-source-dirs:   src
+  default-language: GHC2021
+
+test-suite persistent-records-test
+  import:           warnings
+  default-language: GHC2021
+  type:             exitcode-stdio-1.0
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  build-depends:
+    , base
+    , data-default
+    , path-pieces
+    , persistent
+    , persistent-records
+    , persistent-sqlite
+    , text
+    , uuid
